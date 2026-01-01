@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>싱싱농산물 | 농산물 B2B 도매 · 위탁판매 플랫폼</title>
+  <meta name="description" content="농부가 검수·선별·포장하는 농산물 B2B 도매·위탁판매 플랫폼. 전 품목 1/2/3/5kg 소포장, 최소 1개, 전국 택배(CJ대한통운), 오전 9시 정산완료 시 당일 출고." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .hero-wrap{padding:34px 0 18px;background:linear-gradient(0deg,#fff 0%, #f7faf2 100%);}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center;}
+    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;}
+    .kpi .card{padding:14px;}
+    .kpi b{font-size:18px;}
+    .section{padding:44px 0;}
+    .section.gray{background:#fafafa;}
+    .h2{font-size:26px;margin:0 0 10px;letter-spacing:-.4px;}
+    .lead{margin:0;color:var(--muted);}
+    .process{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px;}
+    .step{border:1px solid var(--line);border-radius:18px;background:#fff;padding:14px;min-height:118px;}
+    .step b{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:10px;background:var(--green);color:var(--soft);margin-bottom:8px;}
+    .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:14px;}
+    .cat{border:1px solid var(--line);border-radius:18px;background:#fff;padding:12px;text-align:center;}
+    .cat img{width:100%;height:100px;object-fit:cover;border-radius:14px;border:1px solid var(--line);margin-bottom:8px;}
+    .cat .name{font-weight:900;}
+    .cat .price{margin-top:6px;font-weight:900;color:#0f172a;font-size:13px;}
+    .cta-band{border:1px solid var(--line);border-radius:20px;background:#fff;padding:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+    @media(max-width:980px){.hero-grid{grid-template-columns:1fr;}.process{grid-template-columns:1fr 1fr;}.cats{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:520px){.cats{grid-template-columns:repeat(2,1fr);}}
+  </style>
+</head>
+<body>
+  <div class="topbar" style="background:#fff;">
+    <div class="container" style="padding:12px 18px;">
+      <div style="font-size:22px; font-weight:1000; color:#dc2626; letter-spacing:-.6px;">
+        ⏱️ 오전 9시까지 발주+정산시 당일 출고
+      </div>
+      <div style="margin-top:6px; font-size:14px; color:#475569;">
+        🚚 CJ대한통운 · 📦 전 품목 1/2/3/5kg 소포장 · 최소 1개부터 · 전국 택배
+      </div>
+    </div>
+  </div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.jpg" alt="싱싱농산물 로고">
+        <div>
+          <div style="font-weight:900;">싱싱농산물</div>
+          <div style="font-size:12px;color:#64748b;">농산물 B2B 도매 · 위탁판매 플랫폼</div>
+        </div>
+      </a>
+      <nav class="menu">
+        <a href="#seller">발주 방법</a>
+        <a href="#process">출고 순서</a>
+        <a href="#category">상품카테고리</a>
+        <a href="#cs">고객센터</a>
+        <a href="#cs-policy">CS처리</a>
+      </nav>
+      <div class="cta" style="display:flex;align-items:center;gap:12px;flex-wrap:nowrap;">
+  <a class="btn" style="white-space:nowrap;" href="products.html">플랫폼(상품)</a>
+  <a class="btn" style="white-space:nowrap;" href="cart.html">장바구니 (<span data-cart-count>0</span>)</a>
+</div>
+    </div>
+  </header>
+  <section class="hero-wrap">
+    <div class="container hero-grid">
+      <div>
+        <div class="badges">
+          <span class="badge green">One Stop System</span>
+          <span class="badge">산지직송</span>
+          <span class="badge">가격 노출형</span>
+          <span class="badge" id="shipBadge">⏱️ 출고 안내</span>
+        </div>
+        <h1 class="h1" style="margin-top:10px;">농산물 위탁판매 B2B<br>도매 플랫폼 안정적인 최저가 공급</h1>
+        <p class="p">
+          싱싱농산물은 산지직송 구조로 운영되는 농산물 B2B 도매·위탁판매 플랫폼입니다.<br>
+          농부가 좋은 농산물인지 직접 판단하고 <b>선별·포장</b>하여 출고합니다.
+        </p>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="products.html">가격부터 보고 판단하기</a>
+          <a class="btn" href="https://docs.google.com/spreadsheets/d/19AARkBVjToNDbb_IbyEG3OGRsa32ZpAwLLjbLpM2h7s/edit?usp=sharing" download target="_blank" rel="noopener">📄 싱싱농산물 공급표 및 공지사항(구글시트)</a>
+          <a class="btn" href="contact.html">문의하기</a>
+        </div>
+        <div class="kpi">
+          <div class="card"><div class="small">포장 단위</div><b>1/2/3/5kg</b></div>
+          <div class="card"><div class="small">택배</div><b>CJ대한통운</b></div>
+        </div>
+      </div>
+      <div class="card">
+        <div style="height:260px; display:flex; align-items:center; justify-content:center; border:1px dashed var(--line); border-radius:14px; background:#fff; font-weight:900; font-size:38px; letter-spacing:-1px; color:var(--green);">싱싱농산물</div>
+        <div style="font-weight:900; font-size:16px;">주문 시 정산확인 후 출고</div>
+        <div class="small">오전 9시까지 주문 & 정산확인 완료 시 당일 출고 / 이후 익일 출고</div>
+        <div class="row" style="margin-top:12px;">
+          <a class="btn" href="cart.html">장바구니</a>
+          <a class="btn primary" href="checkout.html">발주서 작성</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="seller">
+    <div class="container">
+      <h2 class="h2">발주 방법</h2>
+      <p class="lead">가격 노출형(1번)으로 운영하며, 플랫폼에서 바로 발주할 수 있습니다.</p>
+      <div class="process" style="margin-top:14px;">
+        <div class="step"><b>01</b><div style="font-weight:900;">상품 확인</div><p class="small">상품목록에서 단가/포장단위를 확인합니다.</p></div>
+        <div class="step"><b>02</b><div style="font-weight:900;">장바구니 담기</div><p class="small">1/2/3/5kg 선택 후 수량을 담습니다.</p></div>
+        <div class="step"><b>03</b><div style="font-weight:900;">발주서 작성</div><p class="small">배송지/요청사항 입력 후 발주 접수합니다.</p></div>
+        <div class="step"><b>04</b><div style="font-weight:900;">정산 안내</div><p class="small">발주 접수 후 정산 안내를 드립니다.</p></div>
+        <div class="step"><b>05</b><div style="font-weight:900;">포장·출고</div><p class="small">주문 시 정산확인 완료 후 포장·출고(CJ)됩니다.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section gray" id="process">
+    <div class="container">
+      <h2 class="h2">출고 순서</h2>
+      <p class="lead">중간 유통 없이 산지에서 선별·포장 후 바로 출고하여 안정적인 공급이 가능합니다.</p>
+      <div class="process">
+        <div class="step"><b>01</b><div style="font-weight:900;">수급/선별</div><p class="small">농부 기준으로 상태를 확인합니다.</p></div>
+        <div class="step"><b>02</b><div style="font-weight:900;">소분/포장</div><p class="small">1/2/3/5kg 소포장으로 준비합니다.</p></div>
+        <div class="step"><b>03</b><div style="font-weight:900;">품질검증</div><p class="small">불량 최소화를 위해 출고 전 검수합니다.</p></div>
+        <div class="step"><b>04</b><div style="font-weight:900;">자체 출고</div><p class="small">정산 완료 기준으로 당일/익일 출고됩니다.</p></div>
+        <div class="step"><b>05</b><div style="font-weight:900;">CS</div><p class="small">출고/송장/문의 대응을 빠르게 처리합니다.</p></div>
+      </div>
+      <div style="margin-top:14px;" class="cta-band">
+        <div>
+          <div style="font-weight:900;">바로 가격 확인하고 발주하세요</div>
+          <div class="small">상품목록에서 품목별 단가 확인 → 장바구니 → 발주서</div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="products.html">상품목록</a>
+          <a class="btn primary" href="checkout.html">발주하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="category">
+    <div class="container">
+      <h2 class="h2">상품 카테고리</h2>
+      <p class="lead"></p>
+      <div class="cats">
+        <a class="cat" href="product.html?id=carrot">
+            <img src="https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/442466391635115-149e0b46-5169-41be-8baf-0ca8a59b1551.png" alt="당근">
+            <div class="name">🥕 당근</div>
+          </a><a class="cat" href="product.html?id=potato">
+            <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1728271386015686-107eee19-a33f-4011-93dd-44fabc3fa09f.jpg" alt="수미감자">
+            <div class="name">🥔 수미감자</div>
+          </a><a class="cat" href="product.html?id=onion">
+            <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2181774229270366-bdc80c70-69ea-439e-9002-236b438ad24a.jpg" alt="양파">
+            <div class="name">🧅 양파</div>
+          </a><a class="cat" href="product.html?id=kohlrabi">
+            <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/6291213654393-1cb2d94e-ad14-440c-a5c3-ce9bb16e6680.jpg" alt="콜라비">
+            <div class="name">🥦 콜라비</div>
+          </a><a class="cat" href="product.html?id=sweetpotato">
+            <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/8f25/5bcce6d7b83c641607964f9ff26239f99e1651ddbfd10a19809c6f3ee9ae.jpeg" alt="꿀고구마">
+            <div class="name">🍠 꿀고구마</div>
+          </a><a class="cat" href="product.html?id=cabbage">
+            <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2596932496894413-40b1dba0-49f1-4f9d-8ef6-b97ceb909004.jpg" alt="양배추">
+            <div class="name">🥬 양배추</div>
+          </a>
+      </div>
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn primary" href="products.html">전체 상품보기</a>
+      </div>
+    </div>
+  </section>
+  <section class="section gray" id="cs">
+    <div class="container">
+      <h2 class="h2">고객센터</h2>
+      <p class="lead">언제든지 편하게 연락 주세요.</p>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;">
+        <div class="card">
+          <div style="font-weight:900;">전화 상담</div>
+          <div class="small">평일 09:00 - 18:00</div>
+          <div style="margin-top:10px;"><a class="btn primary" href="tel:01055953890">010-5595-3890 전화걸기</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:900;">이메일 문의</div>
+          <div class="small">24시간 문의 가능</div>
+          <div style="margin-top:10px;"><a class="btn" href="mailto:lettucefarm413@gmail.com">이메일 보내기</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:900;">단가/상담 폼</div>
+          <div class="small">문의 남기면 즉시 수신됩니다</div>
+          <div style="margin-top:10px;"><a class="btn primary" href="contact.html">문의하기</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:900;">공지 오픈채팅</div>
+          <div class="small">공지/안내를 오픈채팅으로 확인하세요</div>
+          <div style="margin-top:10px;"><a class="btn primary" href="https://open.kakao.com/o/pDc8ET8h" target="_blank" rel="noopener">카카오 오픈채팅 입장</a></div>
+        </div>
+</div>
+    </div>
+  </section>
+  <section class="section" id="cs-policy">
+    <div class="container">
+      <h2 class="h2">CS 처리 안내</h2>
+      <p class="lead">싱싱농산물은 가격 경쟁력을 최우선으로 운영되는 B2B 산지직송 플랫폼입니다.</p>
+      <div class="card" style="margin-top:14px; max-width:900px;">
+        <p class="small" style="font-size:14px; line-height:1.8; color:#334155;">
+          싱싱농산물은 <b>중간 유통 없이 산지에서 바로 공급</b>하여<br>
+          셀러분들께 <b>최대한 저렴한 공급가</b>를 제공하는 데 집중하고 있습니다.<br><br>
+          그 대신, 일반 소매몰과 같은 <b>세세한 CS 응대나 단순 변심 교환·반품</b>은 진행되지 않습니다.<br>
+          출고 전 충분한 검수 후 발송되며, <b>명백한 상품 하자 또는 오출고</b>에 한해 확인 후 조치됩니다.<br><br>
+          해당 운영 방침에 동의하시는 셀러분들께만<br>
+          <b>안정적인 공급과 합리적인 가격</b>을 제공해드리고 있습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+  <div class="floating">
+    <a class="float-btn" href="products.html">🛒 상품/단가</a>
+    <a class="float-btn secondary" href="checkout.html">🧾 발주서</a>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>document.getElementById('shipBadge').textContent = '⏱️ ' + shipText();
+updateCartCount();</script>
+</body>
+</html>

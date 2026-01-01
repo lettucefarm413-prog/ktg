@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>싱싱농산물 B2B | 발주서</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  
+</head>
+<body>
+  <div class="topbar" style="background:#fff;">
+    <div class="container" style="padding:12px 18px;">
+      <div style="font-size:22px; font-weight:1000; color:#dc2626; letter-spacing:-.6px;">
+        ⏱️ 오전 9시까지 발주+정산시 당일 출고
+      </div>
+      <div style="margin-top:6px; font-size:14px; color:#475569;">
+        🚚 CJ대한통운 · 📦 전 품목 1/2/3/5kg 소포장 · 최소 1개부터 · 전국 택배
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.jpg" alt="싱싱농산물 로고">
+        <div>
+          <div style="font-weight:900;">싱싱농산물</div>
+          <div style="font-size:12px;color:#64748b;">가격 노출형 B2B 발주몰</div>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="products.html">상품목록</a>
+        <a href="checkout.html">발주서</a>
+        <a href="contact.html">단가/상담</a>
+      </nav>
+
+      <div class="cta">
+        <a class="btn" href="cart.html">장바구니 (<span data-cart-count>0</span>)</a>
+        <a class="btn primary" href="checkout.html">바로 발주</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      
+<h1 class="h1">발주서(주문서) 작성</h1>
+<p class="p">가격 노출형(1번)으로 구성되어 있으며, 발주 후 <b>주문 시 정산확인</b>으로 포장·출고됩니다.</p>
+
+<div class="grid" style="grid-template-columns: 1.1fr .9fr; gap:14px; margin-top:14px;">
+  <div class="card">
+    <h3 style="margin:0 0 10px;">배송/요청 정보</h3>
+    <form id="form">
+      <div class="form-grid">
+        <input class="input" name="업체명" placeholder="업체명(상호) *" required>
+        <input class="input" name="담당자명" placeholder="담당자명 *" required>
+      </div>
+      <div class="form-grid">
+        <input class="input" name="연락처" placeholder="연락처 *" required>
+        <input class="input" name="이메일" placeholder="이메일(선택)">
+      </div>
+      <div class="form-grid">
+        <input class="input" name="배송지" placeholder="배송지(주소) *" required>
+        <input class="input" name="지역" placeholder="지역(시/군/구) *" required>
+      </div>
+      <textarea class="input" name="요청사항" placeholder="요청사항 (희망 출고일/규격/기타)"></textarea>
+      <div class="row">
+        <button class="btn" type="button" onclick="location.href='cart.html'">장바구니 수정</button>
+        <button class="btn primary" type="submit">발주 접수(메일 전송)</button>
+      </div>
+      <p class="small" style="margin-top:10px;">
+        결제방식: <b>주문 접수 → 정산 확인 → 포장 및 출고</b><br>
+        택배: CJ대한통운 / 출고: 오전 9시까지 정산 완료 시 당일 출고
+      </p>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 10px;">발주 상품 요약</h3>
+    <div id="summary" class="small"></div>
+    <hr>
+    <div class="row">
+<span class="badge" id="shipBadge">⏱️ -</span>
+    </div>
+    <p class="small" style="margin-top:10px;">
+      ※ 본 발주서는 접수용입니다. 정산 안내 후 정산 완료 시 출고됩니다.
+    </p>
+  </div>
+</div>
+
+<script>
+function renderSummary(){
+  const cart = getCart();
+  const summary = document.getElementById('summary');
+  document.getElementById('shipBadge').textContent = '⏱️ ' + shipText();
+
+  if(cart.length===0){
+    summary.innerHTML = '장바구니가 비었습니다. 먼저 상품을 담아주세요.';
+    return;
+  }
+
+  summary.innerHTML = cart.map(it=>{
+    return `<div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;">
+      <span><b>${it.name}</b> / ${it.pack}kg × ${it.qty}</span>
+    </div>`;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderSummary();
+  const form = document.getElementById('form');
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const cart = getCart();
+    if(cart.length===0){ toast('장바구니가 비었습니다'); return; }
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+
+    // build email message
+    const lines = [];
+    lines.push('【발주 접수 - 싱싱농산물】');
+    lines.push(`업체명: ${data['업체명']}`);
+    lines.push(`담당자명: ${data['담당자명']}`);
+    lines.push(`연락처: ${data['연락처']}`);
+    if(data['이메일']) lines.push(`이메일: ${data['이메일']}`);
+    lines.push(`배송지: ${data['배송지']}`);
+    lines.push(`지역: ${data['지역']}`);
+    lines.push(`출고: ${shipText()}`);
+    if(data['요청사항']) lines.push(`요청사항: ${data['요청사항']}`);
+    lines.push('');
+    lines.push('--- 주문 상품 ---');
+    cart.forEach(it=>{
+      lines.push(`- ${it.name} / ${it.pack}kg × ${it.qty}`);
+    });
+    lines.push('');
+    lines.push('결제방식: 주문 접수 → 정산 확인 → 포장 및 출고');
+
+    // send to Formspree
+    const payload = {
+      _subject: '싱싱농산물 발주 접수',
+      업체명: data['업체명'],
+      담당자명: data['담당자명'],
+      연락처: data['연락처'],
+      이메일: data['이메일']||'',
+      배송지: data['배송지'],
+      지역: data['지역'],
+      출고: shipText(),
+      요청사항: data['요청사항']||'',
+      주문내용: lines.join('\n')
+    };
+
+    const res = await fetch('https://formspree.io/f/freshagriculturalproducts', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    if(res.ok){
+      toast('발주가 접수되었습니다 ✅');
+      localStorage.removeItem('singsing_cart');
+      updateCartCount();
+      setTimeout(()=> location.href='success.html', 800);
+    }else{
+      toast('전송 실패: 네트워크/설정 확인');
+    }
+  });
+});
+</script>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="font-weight:900; margin-bottom:6px;">싱싱농산물</div>
+      <div class="small">
+        B2B 산지직송 · 농부 검수형 공급 · 전 품목 1/2/3/5kg 소포장 · CJ대한통운 전국 택배<br>
+        © 싱싱농산물. All rights reserved.
+      </div>
+      <div class="small" style="margin-top:10px;">
+        문의: 010-5595-3890 / lettucefarm413@gmail.com
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="float-btn" href="contact.html">💬 단가/상담</a>
+    <a class="float-btn secondary" href="tel:01055953890">📞 전화 문의</a>
+  </div>
+
+  <script src="assets/app.js"></script>
+  
+</body>
+</html>

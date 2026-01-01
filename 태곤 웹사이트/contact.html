@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>싱싱농산물 B2B | 단가/상담</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  
+</head>
+<body>
+  <div class="topbar" style="background:#fff;">
+    <div class="container" style="padding:12px 18px;">
+      <div style="font-size:22px; font-weight:1000; color:#dc2626; letter-spacing:-.6px;">
+        ⏱️ 오전 9시까지 발주+정산시 당일 출고
+      </div>
+      <div style="margin-top:6px; font-size:14px; color:#475569;">
+        🚚 CJ대한통운 · 📦 전 품목 1/2/3/5kg 소포장 · 최소 1개부터 · 전국 택배
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.jpg" alt="싱싱농산물 로고">
+        <div>
+          <div style="font-weight:900;">싱싱농산물</div>
+          <div style="font-size:12px;color:#64748b;">가격 노출형 B2B 발주몰</div>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="products.html">상품목록</a>
+        <a href="checkout.html">발주서</a>
+        <a href="contact.html">단가/상담</a>
+      </nav>
+
+      <div class="cta">
+        <a class="btn" href="cart.html">장바구니 (<span data-cart-count>0</span>)</a>
+        <a class="btn primary" href="checkout.html">바로 발주</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      
+<h1 class="h1">단가/주문 상담</h1>
+<p class="p">문의 남기면 <b>lettucefarm413@gmail.com</b>으로 즉시 수신됩니다.</p>
+
+<div class="card" style="margin-top:14px;">
+  
+<form class="card" action="https://formspree.io/f/freshagriculturalproducts" method="post">
+  <h2 class="h2" style="margin:0 0 8px;">단가/주문 상담 신청</h2>
+  <p class="small" style="margin:0 0 14px;">아래 내용을 남겨주시면 확인 후 연락드리겠습니다. (필수 항목 위주)</p>
+
+  <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:12px;">
+    <div>
+      <label class="small">업체명</label>
+      <input class="input" name="company_name" placeholder="예) ○○마켓" required>
+    </div>
+    <div>
+      <label class="small">담당자명</label>
+      <input class="input" name="manager_name" placeholder="예) 홍길동" required>
+    </div>
+    <div>
+      <label class="small">연락처</label>
+      <input class="input" name="phone" placeholder="예) 010-1234-5678" required>
+    </div>
+    <div>
+      <label class="small">판매채널</label>
+      <input class="input" name="sales_channel" placeholder="예) 쿠팡/스마트스토어/자사몰/오프라인">
+    </div>
+  </div>
+
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;">
+    <div>
+      <label class="small">원하는 품목</label>
+      <select class="input" name="item" required>
+<option value="" selected disabled>선택</option>
+        <option>국내산 흙당근(상)</option>
+        <option>제주당근(중)</option>
+        <option>제주당근(상)</option>
+        <option>제주감자(특)</option>
+        <option>콜라비</option>
+        <option>양파(가정용 중)</option>
+        <option>양배추(38)</option>
+        <option>꿀고구마(중)</option>
+</select>
+    </div>
+
+    <div>
+      <label class="small">포장단위</label>
+      <select class="input" name="pack_unit" required>
+        <option value="" selected disabled>선택</option>
+        <option>1kg</option>
+        <option>2kg</option>
+        <option>3kg</option>
+        <option>5kg</option>
+        <option>4kg (양배추)</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="small">수량(개)</label>
+      <input class="input" name="qty" type="number" inputmode="numeric" pattern="[0-9]*"
+             min="1" step="1" placeholder="예) 1000" required>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;">
+    <label class="small">추가 요청사항</label>
+    <textarea class="input" name="message" rows="5" placeholder="예) 희망 납품일, 반복 발주 여부, 희망 단가 등"></textarea>
+  </div>
+
+  <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+    <button class="btn primary" type="submit">상담 신청 보내기</button>
+    <a class="btn" href="tel:01055953890">전화 문의</a>
+    <a class="btn" href="mailto:lettucefarm413@gmail.com">이메일 문의</a>
+  </div>
+
+  <p class="small" style="margin-top:10px;color:#64748b;">
+    ※ 입력하신 정보는 상담 응대를 위해서만 사용됩니다.
+  </p>
+</form>
+
+</div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="font-weight:900; margin-bottom:6px;">싱싱농산물</div>
+      <div class="small">
+        B2B 산지직송 · 농부 검수형 공급 · 전 품목 1/2/3/5kg 소포장 · CJ대한통운 전국 택배<br>
+        © 싱싱농산물. All rights reserved.
+      </div>
+      <div class="small" style="margin-top:10px;">
+        문의: 010-5595-3890 / lettucefarm413@gmail.com
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="float-btn" href="contact.html">💬 단가/상담</a>
+    <a class="float-btn secondary" href="tel:01055953890">📞 전화 문의</a>
+  </div>
+
+  <script src="assets/app.js"></script>
+  <script>updateCartCount();</script>
+  
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>싱싱농산물 B2B | 장바구니</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  
+</head>
+<body>
+  <div class="topbar" style="background:#fff;">
+    <div class="container" style="padding:12px 18px;">
+      <div style="font-size:22px; font-weight:1000; color:#dc2626; letter-spacing:-.6px;">
+        ⏱️ 오전 9시까지 발주+정산시 당일 출고
+      </div>
+      <div style="margin-top:6px; font-size:14px; color:#475569;">
+        🚚 CJ대한통운 · 📦 전 품목 1/2/3/5kg 소포장 · 최소 1개부터 · 전국 택배
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.jpg" alt="싱싱농산물 로고">
+        <div>
+          <div style="font-weight:900;">싱싱농산물</div>
+          <div style="font-size:12px;color:#64748b;">B2B 발주몰</div>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="products.html">상품목록</a>
+        <a href="checkout.html">발주서</a>
+        <a href="contact.html">단가/상담</a>
+      </nav>
+
+      <div class="cta">
+        <a class="btn" href="cart.html">장바구니 (<span data-cart-count>0</span>)</a>
+        <a class="btn primary" href="checkout.html">바로 발주</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      
+<h1 class="h1">장바구니</h1>
+<p class="p">담은 상품을 확인하고 발주서로 이동하세요.</p>
+
+<div class="card" style="margin-top:14px;">
+  <table class="table" id="table"></table>
+  <div class="row" style="margin-top:12px;">
+    <a class="btn" href="products.html">상품 더 보기</a>
+    <a class="btn primary" href="checkout.html">발주서로 이동</a>
+  </div>
+</div>
+
+<script src="assets/prices.js"></script>
+<script>
+const PRICE = (window.SINGSING_PRICE_TABLE && window.SINGSING_PRICE_TABLE.items) ? window.SINGSING_PRICE_TABLE.items : {};
+const priceOf = (id, pack)=> (PRICE[id] && PRICE[id][pack]) ? PRICE[id][pack] : 0;
+function render(){
+  const cart = getCart();
+  const t = document.getElementById('table');
+  if(cart.length===0){
+    t.innerHTML = '<tr><td colspan="4" style="padding:18px;">장바구니가 비었습니다. 상품을 담아주세요.</td></tr>';
+    return;
+  }
+t.innerHTML = `
+    <tr>
+      <th>상품</th>
+      <th>포장</th>
+      <th>수량</th>
+      
+      
+      <th></th>
+    </tr>
+    ${cart.map(it=>{
+return `
+        <tr>
+          <td><div style="display:flex;gap:10px;align-items:center;">
+            <img src="${it.img}" alt="${it.name}" style="width:54px;height:54px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+            <div><b>${it.name}</b><div class="small">${shipText()}</div></div>
+          </div></td>
+          <td>${it.pack}kg</td>
+          <td><input class="input" style="width:90px;" type="number" min="1" value="${it.qty}"
+            onchange="updateQty('${it.productId}', ${it.pack}, Number(this.value)); render();"></td>
+<td><button class="btn" onclick="removeFromCart('${it.productId}', ${it.pack}); render();">삭제</button></td>
+        </tr>
+      `;
+    }).join('')}
+`;
+}
+document.addEventListener('DOMContentLoaded', render);
+</script>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="font-weight:900; margin-bottom:6px;">싱싱농산물</div>
+      <div class="small">
+        B2B 산지직송 · 농부 검수형 공급 · 전 품목 1/2/3/5kg 소포장 · CJ대한통운 전국 택배<br>
+        © 싱싱농산물. All rights reserved.
+      </div>
+      <div class="small" style="margin-top:10px;">
+        문의: 010-5595-3890 / lettucefarm413@gmail.com
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="float-btn" href="contact.html">💬 단가/상담</a>
+    <a class="float-btn secondary" href="tel:01055953890">📞 전화 문의</a>
+  </div>
+
+  <script src="assets/app.js"></script>
+  <script>updateCartCount();</script>
+  
+</body>
+</html>
